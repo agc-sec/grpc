@@ -34,7 +34,7 @@
 #include "src/core/lib/slice/slice_internal.h"
 #include "src/core/lib/support/string.h"
 #include "src/core/tsi/ssl_types.h"
-#include "third_party/openssl_compat/libcrypto-compat.h"
+
 
 /* --- Utils. --- */
 

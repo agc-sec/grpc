@@ -23,7 +23,6 @@
 #include <limits.h>
 #include <string.h>
 
-#include "third_party/openssl_compat/libcrypto-compat.h"
 
 /* TODO(jboeuf): refactor inet_ntop into a portability header. */
 /* Note: for whomever reads this and tries to refactor this, this
