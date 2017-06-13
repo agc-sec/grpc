@@ -135,6 +135,12 @@ static void init_openssl(void) {
   }
   CRYPTO_set_locking_callback(openssl_locking_cb);
   CRYPTO_set_id_callback(openssl_thread_id_cb);
+  // nonsense to clear an unused function compiler error
+  if (false) {
+    openssl_locking_cb(-1,-1,"", -1);
+    long what = openssl_thread_id_cb();
+    what++;
+  }
 }
 
 /* --- Ssl utils. ---*/
