@@ -9020,18 +9020,6 @@
     "type": "filegroup"
   }, 
   {
-    "deps": [], 
-    "headers": [
-      "third_party/openssl_compat/libcrypto-compat.h"
-    ], 
-    "is_filegroup": true, 
-    "language": "c", 
-    "name": "openssl_compat", 
-    "src": [], 
-    "third_party": false, 
-    "type": "filegroup"
-  }, 
-  {
     "deps": [
       "gpr", 
       "grpc_trace"
