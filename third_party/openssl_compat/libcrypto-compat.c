@@ -7,12 +7,14 @@
  * https://www.openssl.org/source/license.html
  */
 
-#include "includes.h"
+#include "libcrypto-compat.h"
 
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
 
 #include <string.h>
 #include <openssl/engine.h>
+#include <openssl/bn.h>
+#include <openssl/crypto.h>
 
 static void *OPENSSL_zalloc(size_t num)
 {
