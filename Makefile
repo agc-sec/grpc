@@ -880,6 +880,8 @@ endif
 
 openssl_dep_error: openssl_dep_message git_update stop
 
+openssl_compat_dep_error: openssl_compat_dep_message git_update stop
+
 protobuf_dep_error: protobuf_dep_message git_update stop
 
 protoc_dep_error: protoc_dep_message git_update stop
@@ -891,6 +893,21 @@ openssl_dep_message:
 	@echo "The target you are trying to run requires an OpenSSL implementation."
 	@echo "Your system doesn't have one, and either the third_party directory"
 	@echo "doesn't have it, or your compiler can't build BoringSSL."
+	@echo
+	@echo "Please consult INSTALL to get more information."
+	@echo
+	@echo "If you need information about why these tests failed, run:"
+	@echo
+	@echo "  make run_dep_checks"
+	@echo
+
+openssl_compat_dep_error:
+	@echo
+	@echo "DEPENDENCY ERROR"
+	@echo
+	@echo "The target you are trying to run requires an OpenSSL compatibility layer."
+	@echo "Your system doesn't have one, and either the third_party directory"
+	@echo "doesn't have it, or your compiler can't build openssl_compat."
 	@echo
 	@echo "Please consult INSTALL to get more information."
 	@echo

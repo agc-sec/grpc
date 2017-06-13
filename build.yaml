@@ -669,6 +669,7 @@ filegroups:
   uses:
   - grpc_base
   - grpc_transport_chttp2_alpn
+  - openssl_compat
   - tsi
 - name: grpc_server_backward_compatibility
   headers:
@@ -862,6 +863,12 @@ filegroups:
   - third_party/nanopb/pb_common.c
   - third_party/nanopb/pb_decode.c
   - third_party/nanopb/pb_encode.c
+- name: openssl_compat
+  headers:
+  - third_party/openssl_compat/libcrypto-compat.h
+  src:
+  - third_party/openssl_compat/libcrypto-compat.c
+  secure: true
 - name: tsi
   headers:
   - src/core/tsi/fake_transport_security.h
@@ -877,6 +884,7 @@ filegroups:
   - src/core/tsi/transport_security_adapter.c
   deps:
   - gpr
+  - openssl_compat
   secure: true
   uses:
   - grpc_trace

@@ -34,6 +34,7 @@
 #include "src/core/lib/slice/slice_internal.h"
 #include "src/core/lib/support/string.h"
 #include "src/core/tsi/ssl_types.h"
+#include "third_party/openssl_compat/libcrypto-compat.h"
 
 /* --- Utils. --- */
 
@@ -478,18 +479,24 @@ static EVP_PKEY *pkey_from_jwk(grpc_exec_ctx *exec_ctx, const grpc_json *json,
     gpr_log(GPR_ERROR, "Could not create rsa key.");
     goto end;
   }
+  BIGNUM *tmp_n = NULL;
+  BIGNUM *tmp_e = NULL;
   for (key_prop = json->child; key_prop != NULL; key_prop = key_prop->next) {
     if (strcmp(key_prop->key, "n") == 0) {
-      rsa->n =
+      tmp_n =
           bignum_from_base64(exec_ctx, validate_string_field(key_prop, "n"));
-      if (rsa->n == NULL) goto end;
+      if (tmp_n == NULL) goto end;
     } else if (strcmp(key_prop->key, "e") == 0) {
-      rsa->e =
+      tmp_e =
           bignum_from_base64(exec_ctx, validate_string_field(key_prop, "e"));
-      if (rsa->e == NULL) goto end;
+      if (tmp_e == NULL) goto end;
     }
   }
-  if (rsa->e == NULL || rsa->n == NULL) {
+  if (tmp_e == NULL || tmp_n == NULL) {
+    gpr_log(GPR_ERROR, "Missing RSA public key field.");
+    goto end;
+  }
+  if (!RSA_set0_key(rsa, tmp_n, tmp_e, NULL)) {
     gpr_log(GPR_ERROR, "Missing RSA public key field.");
     goto end;
   }
