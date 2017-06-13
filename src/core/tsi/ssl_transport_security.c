@@ -1288,7 +1288,10 @@ tsi_result tsi_create_ssl_client_handshaker_factory(
   // connection;  we should restrict this to blacklist _1, _0 or
   // whitelist _2.
   ssl_context = SSL_CTX_new(TLS_method());
-  if (ssl_context == NULL) {
+
+  if (ssl_context == NULL ||
+      !SSL_CTX_set_min_proto_version(ssl_context, TLS1_2_VERSION) ||
+      !SSL_CTX_set_max_proto_version(ssl_context, TLS1_2_VERSION)) {
     gpr_log(GPR_ERROR, "Could not create ssl context.");
     return TSI_INVALID_ARGUMENT;
   }
