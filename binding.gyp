@@ -636,7 +636,6 @@
       'type': 'static_library',
       'dependencies': [
         'gpr',
-        'openssl_compat',
       ],
       'sources': [
         'src/core/lib/surface/init.c',
@@ -816,7 +815,6 @@
         'src/core/lib/security/transport/tsi_error.c',
         'src/core/lib/security/util/json_util.c',
         'src/core/lib/surface/init_secure.c',
-        'third_party/openssl_compat/libcrypto-compat.c',
         'src/core/tsi/fake_transport_security.c',
         'src/core/tsi/ssl_transport_security.c',
         'src/core/tsi/transport_security.c',

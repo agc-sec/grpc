@@ -5840,8 +5840,7 @@
       "grpc_transport_chttp2_client_secure", 
       "grpc_transport_chttp2_server_insecure", 
       "grpc_transport_chttp2_server_secure", 
-      "grpc_workaround_cronet_compression_filter", 
-      "openssl_compat"
+      "grpc_workaround_cronet_compression_filter"
     ], 
     "headers": [], 
     "is_filegroup": false, 
@@ -5859,8 +5858,7 @@
       "grpc_base", 
       "grpc_load_reporting", 
       "grpc_transport_chttp2_client_secure", 
-      "grpc_transport_cronet_client_secure", 
-      "openssl_compat"
+      "grpc_transport_cronet_client_secure"
     ], 
     "headers": [], 
     "is_filegroup": false, 
@@ -8383,8 +8381,7 @@
       "grpc_client_channel", 
       "grpc_resolver_fake", 
       "grpc_secure", 
-      "nanopb", 
-      "openssl_compat"
+      "nanopb"
     ], 
     "headers": [
       "src/core/ext/filters/client_channel/lb_policy/grpclb/client_load_reporting_filter.h", 
@@ -8583,8 +8580,6 @@
       "gpr", 
       "grpc_base", 
       "grpc_transport_chttp2_alpn", 
-      "openssl_compat", 
-      "openssl_compat", 
       "tsi"
     ], 
     "headers": [
@@ -8895,8 +8890,7 @@
       "grpc_client_channel", 
       "grpc_secure", 
       "grpc_transport_chttp2", 
-      "grpc_transport_chttp2_client_connector", 
-      "openssl_compat"
+      "grpc_transport_chttp2_client_connector"
     ], 
     "headers": [], 
     "is_filegroup": true, 
@@ -8951,8 +8945,7 @@
       "grpc_base", 
       "grpc_secure", 
       "grpc_transport_chttp2", 
-      "grpc_transport_chttp2_server", 
-      "openssl_compat"
+      "grpc_transport_chttp2_server"
     ], 
     "headers": [], 
     "is_filegroup": true, 
@@ -9041,8 +9034,7 @@
   {
     "deps": [
       "gpr", 
-      "grpc_trace", 
-      "openssl_compat"
+      "grpc_trace"
     ], 
     "headers": [
       "src/core/tsi/fake_transport_security.h", 

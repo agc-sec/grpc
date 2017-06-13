@@ -669,7 +669,6 @@ filegroups:
   uses:
   - grpc_base
   - grpc_transport_chttp2_alpn
-  - openssl_compat
   - tsi
 - name: grpc_server_backward_compatibility
   headers:
@@ -884,7 +883,6 @@ filegroups:
   - src/core/tsi/transport_security_adapter.c
   deps:
   - gpr
-  - openssl_compat
   secure: true
   uses:
   - grpc_trace
