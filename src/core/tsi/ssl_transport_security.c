@@ -108,7 +108,7 @@ typedef struct {
 
 static gpr_once init_openssl_once = GPR_ONCE_INIT;
 static gpr_mu *openssl_mutexes = NULL;
-/* ___ not used ____
+
 static void openssl_locking_cb(int mode, int type, const char *file, int line) {
   if (mode & CRYPTO_LOCK) {
     gpr_mu_lock(&openssl_mutexes[type]);
@@ -120,7 +120,7 @@ static void openssl_locking_cb(int mode, int type, const char *file, int line) {
 static unsigned long openssl_thread_id_cb(void) {
   return (unsigned long)gpr_thd_currentid();
 }
-*/
+
 static void init_openssl(void) {
   int i;
   int num_locks;
