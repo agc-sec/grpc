@@ -1284,9 +1284,6 @@ tsi_result tsi_create_ssl_client_handshaker_factory(
   *factory = NULL;
   if (pem_root_certs == NULL) return TSI_INVALID_ARGUMENT;
 
-  // The following allows for the maximal mutually supported TLS
-  // connection;  we should restrict this to blacklist _1, _0 or
-  // whitelist _2.
   ssl_context = SSL_CTX_new(TLS_method());
 
   if (ssl_context == NULL ||
@@ -1398,10 +1395,12 @@ tsi_result tsi_create_ssl_server_handshaker_factory_ex(
 
   for (i = 0; i < num_key_cert_pairs; i++) {
     do {
-      // The following allows any tls method.  should blacklist
-      // v0, v1 or whitelist v2.
       impl->ssl_contexts[i] = SSL_CTX_new(TLS_method());
-      if (impl->ssl_contexts[i] == NULL) {
+      if (impl->ssl_contexts[i] == NULL ||
+          SSL_CTX_set_min_proto_version(impl->ssl_contexts[i],
+                                        TLS1_2_VERSION) ||
+          SSL_CTX_set_max_proto_version(impl->ssl_contexts[i],
+                                        TLS1_2_VERSION)) {
         gpr_log(GPR_ERROR, "Could not create ssl context.");
         result = TSI_OUT_OF_RESOURCES;
         break;

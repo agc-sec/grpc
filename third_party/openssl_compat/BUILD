@@ -1,12 +1,16 @@
+licenses(["notice"])
+
+exports_files(["LICENSE.txt"])
+
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "openssl_compat",
     srcs = [
-        "openssl_compat.c",
+        "libcrypto-compat.c",
     ],
     hdrs = [
-        "openssl_compat.h",
+        "libcrypto-compat.h",
     ],
     visibility = ["//visibility:public"],
 )

@@ -1084,6 +1084,7 @@ add_library(grpc
   src/core/lib/security/transport/tsi_error.c
   src/core/lib/security/util/json_util.c
   src/core/lib/surface/init_secure.c
+  third_party/openssl_compat/libcrypto-compat.c
   src/core/tsi/fake_transport_security.c
   src/core/tsi/ssl_transport_security.c
   src/core/tsi/transport_security.c
@@ -1192,6 +1193,7 @@ target_link_libraries(grpc
   ${_gRPC_CARES_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   gpr
+  openssl_compat
 )
 
 foreach(_hdr
@@ -1447,6 +1449,7 @@ add_library(grpc_cronet
   src/core/lib/security/transport/tsi_error.c
   src/core/lib/security/util/json_util.c
   src/core/lib/surface/init_secure.c
+  third_party/openssl_compat/libcrypto-compat.c
   src/core/tsi/fake_transport_security.c
   src/core/tsi/ssl_transport_security.c
   src/core/tsi/transport_security.c
@@ -1489,6 +1492,7 @@ target_link_libraries(grpc_cronet
   ${_gRPC_SSL_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   gpr
+  openssl_compat
 )
 
 foreach(_hdr

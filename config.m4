@@ -262,6 +262,7 @@ if test "$PHP_GRPC" != "no"; then
     src/core/lib/security/transport/tsi_error.c \
     src/core/lib/security/util/json_util.c \
     src/core/lib/surface/init_secure.c \
+    third_party/openssl_compat/libcrypto-compat.c \
     src/core/tsi/fake_transport_security.c \
     src/core/tsi/ssl_transport_security.c \
     src/core/tsi/transport_security.c \
@@ -742,4 +743,5 @@ if test "$PHP_GRPC" != "no"; then
   PHP_ADD_BUILD_DIR($ext_builddir/third_party/boringssl/crypto/x509v3)
   PHP_ADD_BUILD_DIR($ext_builddir/third_party/boringssl/ssl)
   PHP_ADD_BUILD_DIR($ext_builddir/third_party/nanopb)
+  PHP_ADD_BUILD_DIR($ext_builddir/third_party/openssl_compat)
 fi

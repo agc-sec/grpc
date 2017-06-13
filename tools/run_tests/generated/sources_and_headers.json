@@ -5840,7 +5840,8 @@
       "grpc_transport_chttp2_client_secure", 
       "grpc_transport_chttp2_server_insecure", 
       "grpc_transport_chttp2_server_secure", 
-      "grpc_workaround_cronet_compression_filter"
+      "grpc_workaround_cronet_compression_filter", 
+      "openssl_compat"
     ], 
     "headers": [], 
     "is_filegroup": false, 
@@ -5858,7 +5859,8 @@
       "grpc_base", 
       "grpc_load_reporting", 
       "grpc_transport_chttp2_client_secure", 
-      "grpc_transport_cronet_client_secure"
+      "grpc_transport_cronet_client_secure", 
+      "openssl_compat"
     ], 
     "headers": [], 
     "is_filegroup": false, 
@@ -8381,7 +8383,8 @@
       "grpc_client_channel", 
       "grpc_resolver_fake", 
       "grpc_secure", 
-      "nanopb"
+      "nanopb", 
+      "openssl_compat"
     ], 
     "headers": [
       "src/core/ext/filters/client_channel/lb_policy/grpclb/client_load_reporting_filter.h", 
@@ -8580,6 +8583,8 @@
       "gpr", 
       "grpc_base", 
       "grpc_transport_chttp2_alpn", 
+      "openssl_compat", 
+      "openssl_compat", 
       "tsi"
     ], 
     "headers": [
@@ -8890,7 +8895,8 @@
       "grpc_client_channel", 
       "grpc_secure", 
       "grpc_transport_chttp2", 
-      "grpc_transport_chttp2_client_connector"
+      "grpc_transport_chttp2_client_connector", 
+      "openssl_compat"
     ], 
     "headers": [], 
     "is_filegroup": true, 
@@ -8945,7 +8951,8 @@
       "grpc_base", 
       "grpc_secure", 
       "grpc_transport_chttp2", 
-      "grpc_transport_chttp2_server"
+      "grpc_transport_chttp2_server", 
+      "openssl_compat"
     ], 
     "headers": [], 
     "is_filegroup": true, 
@@ -9020,9 +9027,22 @@
     "type": "filegroup"
   }, 
   {
+    "deps": [], 
+    "headers": [
+      "third_party/openssl_compat/libcrypto-compat.h"
+    ], 
+    "is_filegroup": true, 
+    "language": "c", 
+    "name": "openssl_compat", 
+    "src": [], 
+    "third_party": false, 
+    "type": "filegroup"
+  }, 
+  {
     "deps": [
       "gpr", 
-      "grpc_trace"
+      "grpc_trace", 
+      "openssl_compat"
     ], 
     "headers": [
       "src/core/tsi/fake_transport_security.h", 
